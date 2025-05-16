@@ -22,13 +22,13 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Биг Бен",
             coords: [51.5007, -0.1246],
             description: "Часовая башня высотой 96 метров",
-            image: "images/big-ben.jpg"
+            image: "images/big-ben.webp"
         },
         {
             name: "Тауэрский мост",
             coords: [51.5055, -0.0754],
             description: "Разводной мост 1894 года",
-            image: "images/tower-bridge.jpg"
+            image: "images/tower-bridge.webp"
         }
     ];
 

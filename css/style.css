@@ -23,7 +23,7 @@ body {
 /* Hero Section */
 .hero-section {
     background: linear-gradient(rgba(0, 36, 125, 0.6), rgba(0, 36, 125, 0.6)),
-                url('../images/london-bg.jpg') center/cover fixed;
+                url('../images/london-bg.webp') center/cover fixed;
     height: 100vh;
     display: flex;
     align-items: center;
