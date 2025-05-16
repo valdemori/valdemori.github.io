@@ -1,0 +1,225 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, 
+        #1a1a2e 0%, 
+        #16213e 25%, 
+        #0f3460 50%, 
+        #533483 100%);
+    font-family: 'Exo 2', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.cyber-btn {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    padding: 15px 30px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid #00f3ff;
+    border-radius: 8px;
+    color: #00f3ff;
+    text-decoration: none;
+    font-family: 'Rubik Mono One', monospace;
+    transition: all 0.3s;
+    box-shadow: 0 0 15px rgba(0,243,255,0.3);
+    z-index: 1000;
+}
+
+.cyber-btn:hover {
+    background: #00f3ff;
+    color: #0f3460;
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0,243,255,0.6);
+}
+
+.neon-container {
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 40px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+}
+
+.neon-title {
+    text-align: center;
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-shadow: 0 0 10px #a945c7,
+                 0 0 20px #a945c7,
+                 0 0 30px #a945c7;
+}
+
+.source-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.source-card {
+    position: relative;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 25px;
+    transition: all 0.4s;
+    overflow: hidden;
+}
+
+.source-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        transparent 20%, 
+        rgba(255,255,255,0.1) 50%, 
+        transparent 80%);
+    transform: rotate(45deg);
+    animation: hologram 6s linear infinite;
+}
+
+@keyframes hologram {
+    0% { transform: rotate(45deg) translate(-30%, -30%); }
+    100% { transform: rotate(45deg) translate(30%, 30%); }
+}
+
+.source-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.source-link i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #00f3ff;
+    filter: drop-shadow(0 0 5px #00f3ff);
+}
+
+.source-link span {
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.source-link small {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+.source-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(169,69,199,0.5);
+    background: rgba(169,69,199,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .neon-container {
+        margin: 80px 20px;
+        padding: 20px;
+    }
+    
+    .neon-title {
+        font-size: 1.8rem;
+    }
+    
+    .source-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cyber-btn {
+        top: 20px;
+        left: 20px;
+        padding: 12px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .neon-container {
+        margin: 60px 15px;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .neon-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        text-shadow: 0 0 8px #a945c7;
+    }
+
+    .source-card {
+        padding: 20px;
+        margin: 0 -10px;
+    }
+
+    .source-link i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .source-link span {
+        font-size: 1.1rem;
+    }
+
+    .cyber-btn {
+        top: 15px;
+        left: 15px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        border-width: 1px;
+    }
+
+    .source-card:hover {
+        transform: none;
+        box-shadow: 0 0 15px rgba(169,69,199,0.3);
+    }
+}
+
+@media (max-width: 360px) {
+    .source-grid {
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .source-link small {
+        font-size: 0.8rem;
+    }
+
+    .source-card::before {
+        animation-duration: 8s;
+    }
+}
+
+/* Touch Device Optimization */
+@media (hover: none) {
+    .source-card::before {
+        animation: none;
+    }
+    
+    .cyber-btn:hover {
+        transform: none;
+        background: rgba(255,255,255,0.1);
+        color: #00f3ff;
+        box-shadow: 0 0 15px rgba(0,243,255,0.3);
+    }
+}

@@ -1,0 +1,317 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #333;
+    --light-bg: rgba(255, 255, 255, 0.95);
+}
+
+body {
+    background: linear-gradient(45deg, #f8f9fa, #ecf0f1);
+    min-height: 100vh;
+    font-family: 'Georgia', serif;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: var(--light-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    perspective: 1000px;
+    transition: transform 0.3s;
+}
+
+.institution {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 20px;
+    transition: border-color 0.5s;
+}
+
+.project-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 80px 0;
+    color: var(--primary-color);
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(44,62,80,0.1);
+    transition: transform 0.3s;
+}
+
+.project-title::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 3px;
+    background: var(--accent-color);
+}
+
+.authors {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin: 60px 0;
+    padding: 20px;
+    background: rgba(52, 152, 219, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.group {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 25px 0;
+    font-style: italic;
+}
+
+.supervisor {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-top: 50px;
+    padding: 15px 30px;
+    display: inline-block;
+    border: 2px solid var(--accent-color);
+    border-radius: 30px;
+    background: linear-gradient(45deg, transparent, rgba(231,76,60,0.1));
+    transition: all 0.3s;
+}
+
+.divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ddd, transparent);
+    margin: 40px 0;
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Интерактивные элементы */
+.project-title:hover {
+    transform: rotateX(5deg);
+}
+
+.authors:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.authors::before {
+    content: "✍️";
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    font-size: 4rem;
+    opacity: 0.1;
+    transform: rotate(15deg);
+}
+
+.supervisor:hover {
+    background: linear-gradient(45deg, rgba(231,76,60,0.1), rgba(231,76,60,0.2));
+    letter-spacing: 1px;
+}
+
+.institution:hover {
+    border-color: var(--accent-color);
+}
+
+/* Кнопки */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 12px 25px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 30px;
+    color: var(--primary-color);
+    text-decoration: none;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.back-btn i {
+    transition: transform 0.3s;
+}
+
+.nav-buttons {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.nav-btn {
+    padding: 12px 30px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    border-radius: 40px;
+    text-decoration: none;
+    backdrop-filter: blur(6px);
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+/* Ховер-эффекты */
+.back-btn:hover {
+    background: white;
+    transform: translateY(-2px);
+}
+
+.back-btn:hover i {
+    transform: translateX(-5px);
+}
+
+.nav-btn:hover {
+    background: rgba(0,0,0,1);
+    transform: translateY(-3px);
+    box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+}
+
+/* Параллакс-эффект */
+@media (prefers-reduced-motion: no-preference) {
+    .container:hover {
+        transform: rotateY(2deg) rotateX(1deg);
+    }
+}
+
+/* Адаптация для планшетов */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 25px 15px;
+    }
+    
+    .project-title {
+        font-size: 2rem;
+        margin: 50px 0;
+    }
+    
+    .authors {
+        font-size: 1rem;
+        margin: 40px 0;
+    }
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 480px) {
+    .container {
+        margin: 15px;
+        padding: 20px 10px;
+        border-radius: 12px;
+    }
+
+    .project-title {
+        font-size: 1.6rem;
+        margin: 40px 0 30px;
+        letter-spacing: 1px;
+    }
+
+    .project-title::after {
+        width: 80px;
+        bottom: -15px;
+    }
+
+    .institution {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .authors {
+        font-size: 1rem;
+        margin: 30px 0;
+        padding: 15px;
+    }
+
+    .supervisor {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .back-btn {
+        top: 15px;
+        left: 15px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .nav-buttons {
+        bottom: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 90%;
+    }
+
+    .nav-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+        flex: 1 1 45%;
+        text-align: center;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 360px) {
+    .project-title {
+        font-size: 1.4rem;
+    }
+    
+    .nav-btn {
+        flex: 1 1 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Оптимизация для тач-устройств */
+@media (hover: none) {
+    .project-title:hover,
+    .authors:hover,
+    .supervisor:hover,
+    .institution:hover,
+    .container:hover {
+        transform: none;
+    }
+    
+    .back-btn:hover,
+    .nav-btn:hover {
+        transform: none;
+        background: rgba(255,255,255,0.9);
+    }
+    
+    .back-btn:hover i {
+        transform: none;
+    }
+}
