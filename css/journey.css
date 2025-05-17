@@ -215,3 +215,35 @@ body {
         font-size: 1.2rem !important;
     }
 }
+
+/* Добавляем прокрутку для мобильных устройств */
+@media (max-width: 480px) {
+    .nav-buttons {
+        top: 50%;
+        max-height: 85vh; /* Ограничиваем высоту контейнера */
+        overflow-y: auto; /* Включаем вертикальную прокрутку */
+        -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+        /* Остальные существующие стили */
+    }
+
+    /* Убираем фиксированную позицию описания */
+    .nav-btn::after {
+        position: static !important;
+        transform: none !important;
+    }
+}
+
+/* Стилизация скроллбара */
+.nav-buttons::-webkit-scrollbar {
+    width: 6px;
+}
+
+.nav-buttons::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+}
+
+.nav-buttons::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #3498DB, #9B59B6);
+    border-radius: 3px;
+}
